@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LayoutExamples"
+             x:Class="LayoutExamples.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:String x:Key="proportion2">0.05</x:String>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Spacing="10">
+        <Label Text="Here is my initial form. It is a StackLayout containing this label, 
+               a BoxView of default size, and an AbsoluteLayout featuring BoxViews in assorted positions." 
+               BackgroundColor="Red"
+           VerticalOptions="FillAndExpand" 
+           HorizontalOptions="FillAndExpand" />
+
+        
+        <BoxView  Color="Silver" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <AbsoluteLayout
+             BackgroundColor="Aqua"
+               VerticalOptions="FillAndExpand" 
+           HorizontalOptions="FillAndExpand"
+            >
+            <Label Text="Label in an AbsoluteLayout" 
+                   BackgroundColor="Green"
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+ 
+
+            <!-- Put BoxViews in thirds of the container width -->
+            <BoxView Color="Teal" AbsoluteLayout.LayoutBounds="0,0,0.33,1"
+                     AbsoluteLayout.LayoutFlags="All" />
+            <BoxView Color="Gray"  AbsoluteLayout.LayoutBounds="0.5,0,0.33,1"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView Color="Lime"  AbsoluteLayout.LayoutBounds="1,0,0.33,1"
+                     AbsoluteLayout.LayoutFlags="All"/>
+                          
+            <!-- Put BoxViews in the corner -->
+            <BoxView Color="Yellow" AbsoluteLayout.LayoutBounds="0,0,0.10,0.10"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView Color="Green" AbsoluteLayout.LayoutBounds="1,0,0.10,0.10"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView Color="Orange" AbsoluteLayout.LayoutBounds="1,1,0.10,0.10"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView Color="Pink" AbsoluteLayout.LayoutBounds="0,1,0.10,0.10"
+                     AbsoluteLayout.LayoutFlags="All"/>
+
+            <!-- Put BoxViews in the middle of edges -->
+            <!--
+            There is repetition here  - the proportinal size values are beeded for every box.
+            I've tried to put into a Static Resource (see attempt below) but no joy.
+            I tried to get the StringFormat to work in a Label but couldn't get that  going either (see StringFormatLabelPage).
+            
+            <BoxView Color="Fuchsia" 
+                AbsoluteLayout.LayoutBounds= "{Binding {StaticResource proportion2}, StringFormat={}0.5,0,0.10,{0}}"
+                AbsoluteLayout.LayoutFlags="All"/>
+            -->
+
+            <BoxView Color="Fuchsia" AbsoluteLayout.LayoutBounds="0.5,0,0.10,0.10"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView Color="Blue" AbsoluteLayout.LayoutBounds="1,0.5,0.10,0.10"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView Color="White" AbsoluteLayout.LayoutBounds="0.5,1,0.10,0.10"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            <BoxView Color="Purple" AbsoluteLayout.LayoutBounds="0,0.5,0.10,0.10"
+                     AbsoluteLayout.LayoutFlags="All"/>
+        </AbsoluteLayout>
+        <Button Clicked="Button_Clicked" Text="StringFormat tests" />
+    </StackLayout>
+    
+</ContentPage>

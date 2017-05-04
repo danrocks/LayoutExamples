@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LayoutExamples.StringFormatLabelPage"
+             Title="StringFormat Label Test">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:String x:Key="proportion2">0.05</x:String>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout Padding="10">
+        <Label>
+            <Label.Text>
+I got side-tracked trying to work out how to set-up label text that is a combination of a string constant 
+from the resource dictionary and label specific text. I think all of the following
+Labels shouldbe showing the x:string value "O.05" but apart from the first, they don't.
+They fail silently. I'm not sure why this.
+            </Label.Text>
+        </Label>
+        
+        <Label BackgroundColor="Pink" Text="{StaticResource proportion2}" />
+        <Label BackgroundColor="Pink" Text="123,{StaticResource proportion2}" />
+        <Label BackgroundColor="Pink" Text="{Binding {StaticResourceExtension proportion2}, StringFormat='0.5,0,0.10,{0}'}" />
+        <Label BackgroundColor="Pink" Text="{Binding Path={StaticResourceExtension proportion2}, StringFormat='{0}'}" />
+        <Label BackgroundColor="Pink" BindingContext="{StaticResourceExtension proportion2}" Text="{Binding Value}"/>
+
+        <Label BackgroundColor="Pink" BindingContext="{StaticResourceExtension proportion2}" Text="{Binding Value, StringFormat='0.5,0,0.10,{0}'}" />
+        <Label BackgroundColor="Pink" BindingContext="{StaticResourceExtension proportion2}" Text="{Binding Value, StringFormat='{0}'}" />
+        <Label BackgroundColor="Pink" BindingContext="{StaticResourceExtension proportion2}" Text="{Binding Text, StringFormat='{0}'}" />
+        <Label BackgroundColor="Pink" Text="{Binding Source={StaticResourceExtension proportion2}, Path=Value, StringFormat='{0}'}" />
+        <Label BackgroundColor="Pink" Text="{Binding Source={StaticResourceExtension proportion2}, Path=Text, StringFormat='{0}'}" />
+
+    </StackLayout>
+
+</ContentPage>
