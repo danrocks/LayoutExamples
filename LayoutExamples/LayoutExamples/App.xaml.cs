@@ -14,7 +14,8 @@ namespace LayoutExamples
             InitializeComponent();
 
             // MainPage = new LayoutExamples.MainPage();
-            MainPage = new NavigationPage(new MainPage());
+            // MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new ImagePage());
         }
 
         protected override void OnStart()

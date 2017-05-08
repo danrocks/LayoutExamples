@@ -8,7 +8,7 @@
             <x:String x:Key="proportion2">0.05</x:String>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout Spacing="10">
+    <StackLayout Spacing="10" >
         <Label Text="Here is my initial form. It is a StackLayout containing this label, 
                a BoxView of default size, and an AbsoluteLayout featuring BoxViews in assorted positions." 
                BackgroundColor="Red"

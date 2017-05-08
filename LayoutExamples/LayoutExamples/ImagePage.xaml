@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:LayoutExamples="clr-namespace:LayoutExamples;assembly=LayoutExamples" 
+             x:Class="LayoutExamples.ImagePage"
+             Title="ImagePage">
+
+    <ContentView.BindingContext>
+        <LayoutExamples:ImagePageViewModel />
+    </ContentView.BindingContext>
+    <StackLayout x:Name="RouteStack" VerticalOptions="FillAndExpand" BackgroundColor="Pink" >
+        <Label>
+            On this page I am checking how things might work with images.
+        </Label>
+
+        <Label Text=" Some Text" />
+        <Entry Placeholder="wrtite here" Text="{Binding  SomeText }"/>
+
+        <Label Text="{Binding SomeNotes}"/>
+        <AbsoluteLayout>
+            <Image BackgroundColor="Teal" 
+                   Source="http://ichef.bbci.co.uk/news/976/cpsprodpb/10F1B/production/_95830496_tibbekey.jpg"
+                   AbsoluteLayout.LayoutBounds="0,0,0.33,1"
+                     AbsoluteLayout.LayoutFlags="All" />
+            <Image BackgroundColor="Gray"
+                   Source="https://ichef.bbci.co.uk/news/660/cpsprodpb/D96B/production/_95895655_googlehqgetty.jpg"
+                   AbsoluteLayout.LayoutBounds="0.5,0,0.33,1"
+                     AbsoluteLayout.LayoutFlags="All"/>
+            <Image BackgroundColor="Lime"
+                   Source="https://ichef.bbci.co.uk/news/660/cpsprodpb/15137/production/_95372368_gettyimages-482856041.jpg"
+                   AbsoluteLayout.LayoutBounds="1,0,0.33,1"
+                     AbsoluteLayout.LayoutFlags="All"/>
+
+        </AbsoluteLayout>
+
+        <Button Text="Add image" Command="{Binding AddImage}" />
+    </StackLayout>
+
+
+</ContentPage>
