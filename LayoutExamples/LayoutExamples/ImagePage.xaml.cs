@@ -19,7 +19,7 @@ namespace LayoutExamples
         {
             InitializeComponent();
             BindingContext = new ImagePageViewModel();
-
+            AddImageListView();
         }
 
         /// <summary>
@@ -28,7 +28,8 @@ namespace LayoutExamples
         /// in a way that takes into account orientation to use space efficiently.
         /// So I am seeing how the world looks if creating the listview in c#.
         /// </summary>
-        private void AddImageListView() {
+        private void AddImageListView()
+        {
 
             ListView lv = new ListView();
             lv.ItemsSource = (BindingContext as ImagePageViewModel).images;

@@ -10,7 +10,7 @@ using Xamarin.Forms;
 using XLabs.Forms.Mvvm;
 namespace LayoutExamples
 {
-    [ViewType(typeof(ImagePage))]
+    //[ViewType(typeof(ImagePage))]
     class ImagePageViewModel : INotifyPropertyChanged
     {
         /// <summary>
